@@ -1,0 +1,74 @@
+:root{
+  --ciruela:#3b1030;
+  --rosa:#c2185b;
+  --rubor:#fbe4ec;
+  --oro:#c9a24b;
+  --blanco:#fffafc;
+  --texto:#2a1425;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Jost",Arial,sans-serif;color:var(--texto);background:var(--blanco);line-height:1.65;font-size:1.05rem}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.1}
+img{max-width:100%;display:block}
+a:focus-visible,button:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+
+/* Encabezado */
+.encabezado{position:sticky;top:0;z-index:10;background:var(--ciruela);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding:.9rem 6%}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;font-weight:700;color:var(--rubor);text-decoration:none}
+.menu{display:flex;gap:1.4rem;list-style:none;flex-wrap:wrap}
+.menu a{color:var(--rubor);text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.menu a:hover{border-color:var(--oro)}
+
+/* Portada */
+.portada{background:linear-gradient(160deg,var(--rubor) 55%,#f3b6cb);display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:5rem 6%}
+.portada h1{font-size:clamp(3rem,7vw,5.5rem);color:var(--ciruela);font-weight:600}
+.portada h1 em{color:var(--rosa);font-weight:500}
+.portada p{max-width:34rem;margin:1.4rem 0 2rem}
+.boton{display:inline-block;background:var(--rosa);color:#fff;padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:500;transition:background .2s,transform .2s}
+.boton:hover{background:var(--ciruela);transform:translateY(-2px)}
+.portada img{border-radius:48% 48% 18px 18px;border:6px solid var(--oro);box-shadow:0 20px 40px rgba(59,16,48,.25)}
+
+/* Secciones */
+.seccion{padding:5rem 6%}
+.seccion.oscura{background:var(--ciruela);color:var(--rubor)}
+.seccion.rosada{background:var(--rubor)}
+.seccion h2{font-size:clamp(2.2rem,4vw,3.2rem);color:var(--ciruela);margin-bottom:.6rem}
+.oscura h2{color:var(--rubor)}
+.intro{max-width:42rem;margin-bottom:2.5rem}
+
+/* Productos */
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
+.producto{background:#fff;border-left:6px solid var(--rosa);padding:1.6rem;border-radius:4px 18px 18px 4px;box-shadow:0 6px 18px rgba(59,16,48,.08)}
+.producto:nth-child(even){border-left-color:var(--oro)}
+.producto h3{font-size:1.7rem;color:var(--ciruela);margin-bottom:.4rem}
+
+/* Rutina */
+.pasos{list-style:none;counter-reset:paso;display:grid;gap:1rem;max-width:46rem}
+.pasos li{counter-increment:paso;position:relative;padding:1rem 1rem 1rem 4.2rem;background:rgba(255,255,255,.07);border-radius:12px}
+.pasos li::before{content:counter(paso);position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:2.3rem;height:2.3rem;border-radius:50%;background:var(--oro);color:var(--ciruela);display:grid;place-items:center;font-weight:700}
+.pasos strong{color:var(--oro)}
+
+/* Galería */
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.galeria figure{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(59,16,48,.12)}
+.galeria img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s}
+.galeria figure:hover img{transform:scale(1.05)}
+.galeria figcaption{padding:1rem 1.2rem;font-size:.95rem}
+.galeria figure{overflow:hidden}
+
+/* Consejos */
+.consejos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.consejos article{border-top:4px solid var(--rosa);padding-top:1rem}
+.consejos h3{font-size:1.6rem;margin-bottom:.3rem}
+
+/* Pie */
+footer{background:var(--ciruela);color:var(--rubor);text-align:center;padding:2.2rem 6%;font-size:.95rem}
+footer span{color:var(--oro)}
+
+@media (max-width:800px){
+  .portada{grid-template-columns:1fr;padding:3rem 6%}
+  .portada img{max-width:360px;margin:auto}
+  .seccion{padding:3.5rem 6%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
